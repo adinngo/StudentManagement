@@ -13,6 +13,11 @@
 * Lambda Expression
 * Generic
 * Dependency Injection
+![hinh anh minh hoa code](https://github.com/adinngo/StudentManagement/blob/main/images/Screenshot%202024-06-18%20082450.png)
+![hinh anh minh hoa code](https://github.com/adinngo/StudentManagement/blob/main/images/Screenshot%202024-06-18%20082654.png)
+![hinh anh minh hoa code](https://github.com/adinngo/StudentManagement/blob/main/images/Screenshot%202024-06-18%20083025.png)
+![hinh anh minh hoa code](https://github.com/adinngo/StudentManagement/blob/main/images/Screenshot%202024-06-18%20083259.png)
+![hinh anh minh hoa code](https://github.com/adinngo/StudentManagement/blob/main/images/Screenshot%202024-06-18%20083921.png)
 
 ### Nguồn tài liệu tham khảo: https://github.com/doit-now/java-oop-craftsman
 ### Mọi góp ý từ mọi người xin đón nhận. Chân thành cảm ơn.
