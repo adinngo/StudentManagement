@@ -27,23 +27,22 @@ public class StudentManager {
     List<Student> list = new ArrayList();
 
     {
-        list.add(new Student("SE999999", "CHÍN NGUYỄN", 2009, 3.0));
-        list.add(new Student("SE666666", "LỤC TRẦN", 2006, 2.5));
-        list.add(new Student("SE555555", "NĂM LÊ", 2005, 3.2));
+        list.add(new Student("SE999999", "NGUYEN A", 2009, 3.0));
+        list.add(new Student("SE666666", "NGUYEN C", 2006, 2.5));
+        list.add(new Student("SE555555", "NGUYEN H", 2005, 3.2));
 
-        list.add(new Student("SE444444", "BỐN PHẠM", 2004, 4.0));
-        list.add(new Student("SE777777", "BẢY LÍ", 2007, 2.0));
-        list.add(new Student("SE888888", "TÁM ĐÀO", 2008, 2.9));
+        list.add(new Student("SE444444", "NGUYEN F", 2004, 4.0));
+        list.add(new Student("SE777777", "NGUYEN E", 2007, 2.0));
+        list.add(new Student("SE888888", "NGUYEN D", 2008, 2.9));
 
-        list.add(new Student("SE222222", "HAI VÕ", 2002, 3.1));
-        list.add(new Student("SE333333", "BÁC BA PHI", 2003, 3.5));
+        list.add(new Student("SE222222", "NGUYEN B", 2002, 3.1));
+        list.add(new Student("SE333333", "NGUYEN E", 2003, 3.5));
     }
 
     //lấy danh sách sinh viên
 //    public List<Student> getAllStudents() {
 //        return list;
 //    }
-
     //hàm phụ trợ giúp tìm các id đã tồn tại
     //tìm kiếm sinh viên bằng id và trả về vị trí Sinh viên
     //quy ước: >=0 là tìm thấy, < 0 là k tìm thấy 
@@ -173,7 +172,7 @@ public class StudentManager {
         }
 
     }
-    
+
     public void removeStudent() {
         int pos;
         String id;
@@ -193,24 +192,24 @@ public class StudentManager {
 
         }
     }
-    
+
     //sắp xếp tăng dần theo id
     //vì comparator là interface chỉ có 1 hàm abstract duy nhất
     // -> functional interface -> lambda expression 
     public void printStudentListAscById() {
         Collections.sort(list, (o1, o2) -> o1.getId().compareTo(o2.getId()));
-        showProfileOfAllStudents();          
+        showProfileOfAllStudents();
     }
-    
+
     //hàm phụ trợ lấy first name
     private String getFirstName(String name) {
-        if(name.trim().indexOf(" ") > 0){
+        if (name.trim().indexOf(" ") > 0) {
             String firstName = name.substring(name.lastIndexOf(" ") + 1);
             return firstName;
         }
         return name;
     }
-    
+
     //sắp xếp sinh viên theo tên
     public void printStudentListAscByName() {
         if (list.isEmpty()) {
@@ -218,33 +217,32 @@ public class StudentManager {
         }
         //interface comparator
         Collections.sort(list, (o1, o2) -> getFirstName(o1.getName()).
-                                            compareTo(getFirstName(o2.getName())));
+                compareTo(getFirstName(o2.getName())));
         showProfileOfAllStudents();
-      
+
     }
-    
-    
+
     //sort ascending by gpa
-    public void printStudentListAscByGpa(){
+    public void printStudentListAscByGpa() {
         if (list.isEmpty()) {
             System.out.println("The list of students is empty!!!");
         }
         Collections.sort(list, (o1, o2) -> Double.compare(o1.getGpa(), o2.getGpa()));
         showProfileOfAllStudents();
     }
-   
-    
+
     //ham phu tro
     private List<Student> getAllStudents(Filter<Student> filter) {
         List<Student> result = new ArrayList();
-        for(var x : list){
-            if(filter.check(x))
+        for (var x : list) {
+            if (filter.check(x)) {
                 result.add(x);
+            }
         }
         return result;
     }
-    
-    public void printStudentsGt8(){
+
+    public void printStudentsGt3() {
         if (list.isEmpty()) {
             System.out.println("The list of students is empty!!!");
         }
@@ -255,11 +253,14 @@ public class StudentManager {
                 return x.getGpa() >= 3.2;
             }
         };
-        
+
         List<Student> result = new ArrayList();
         result = getAllStudents(filter); //DI denpency injection
         Collections.sort(result, (o1, o2) -> Double.compare(o1.getGpa(), o2.getGpa()));
-        for(var x : result)
+        System.out.println("The list of students has GPA greater than or equal to 3.2");
+       
+        for (var x : result) {
             x.showProfile();
+        }
     }
 }

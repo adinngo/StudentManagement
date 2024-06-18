@@ -68,7 +68,7 @@ public class Main {
                     sm.printStudentListAscByGpa();
                     break;
                 case 9:
-                    sm.printStudentsGt8();
+                    sm.printStudentsGt3();
                     break;
                 case 10:
                     System.out.println("Bye bye, see you next time!");
